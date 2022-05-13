@@ -1,6 +1,6 @@
 version: '3'
 services:
-  mongo:
+  app:
     container_name: circleci-sandbox
     build: .
     volumes:
