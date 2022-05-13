@@ -1,0 +1,15 @@
+version: '3'
+services:
+  mongo:
+    container_name: circleci-sandbox
+    build: .
+    volumes:
+      - type: bind
+        source: .
+        target: /root/circleci-sandbox
+    working_dir: /root/circleci-sandbox
+    entrypoint: bash
+    stdin_open: true
+    tty: true
+    ports:
+      - 9000:9000
