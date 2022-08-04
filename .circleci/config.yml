@@ -11,8 +11,8 @@ jobs:
       - checkout
       - run:
           command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              TARGET_FILE=".circleci/master.yml"
+            if [ "${CIRCLE_BRANCH}" == "main" ]; then
+              TARGET_FILE=".circleci/main.yml"
             else
               TARGET_FILE=".circleci/develop.yml"
             fi

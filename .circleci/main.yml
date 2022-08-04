@@ -1,15 +1,15 @@
 version: 2.1
 
 jobs:
-  master:
+  main:
     executor: circleci/node:12
     steps:
       - checkout
       - run:
           command: |
-            echo "master"
+            echo "main"
 
 workflows:
   setup:
     jobs:
-      - master
+      - main
