@@ -15,7 +15,7 @@ jobs:
             if [[ "${CIRCLE_BRANCH}" == "main" ]]
             then
               .circleci/main.yml > run.yml
-            else
+            else then
               .circleci/develop.yml > run.yml
             fi
       - continuation/continue:
