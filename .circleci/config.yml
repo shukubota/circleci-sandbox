@@ -11,7 +11,7 @@ jobs:
     steps:
       - checkout
       - run:
-          command:
+          command: |
             if [[ "${CIRCLE_BRANCH}" == "main" ]]; then
               .circleci/main.yml > run.yml
             else
