@@ -12,14 +12,13 @@ jobs:
       - checkout
       - run:
           command:
-            if [[ "${CIRCLE_BRANCH}" == "main" ]]
-            then
+            if [[ "${CIRCLE_BRANCH}" == "main" ]]; then
               .circleci/main.yml > run.yml
-            else then
+            else
               .circleci/develop.yml > run.yml
             fi
       - continuation/continue:
-          configuration_path: .circleci/run.yml
+          configuration_path: ./run.yml
   # kick-dev:
   #   executor: continuation/default
   #   steps:
