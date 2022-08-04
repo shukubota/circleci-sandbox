@@ -13,8 +13,8 @@ jobs:
       - continuation/continue:
           configuration_path: .circleci/main.yml
       - when:
-        condition:
-          equal: [ main, << pipeline.git.branch >> ]
+          condition:
+            equal: [ main, << pipeline.git.branch >> ]
   setup-dev:
     executor: continuation/default
     steps:
@@ -22,9 +22,10 @@ jobs:
       - continuation/continue:
           configuration_path: .circleci/develop.yml
       - when:
-        matched:
-          pattern: "^deploy/pfdev-review$"
-          value: << pipeline.git.branch >>
+          condition:
+            matched:
+              pattern: "^deploy/pfdev-review$"
+              value: << pipeline.git.branch >>
 
 workflows:
   run-main:
