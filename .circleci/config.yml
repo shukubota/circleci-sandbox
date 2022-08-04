@@ -20,7 +20,7 @@ jobs:
     steps:
       - checkout
       - continuation/continue:
-          configuration_path: .circleci/dev.yml
+          configuration_path: .circleci/develop.yml
       - when:
         matched:
           pattern: "^deploy/pfdev-review$"
