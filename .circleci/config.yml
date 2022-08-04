@@ -13,8 +13,9 @@ jobs:
       - when:
         condition:
           equal: [ main, << pipeline.git.branch >> ]
-        continuation/continue:
-          configuration_path: .circleci/main.yml
+        steps:
+          - continuation/continue:
+              configuration_path: .circleci/main.yml
   # kick-dev:
   #   executor: continuation/default
   #   steps:
