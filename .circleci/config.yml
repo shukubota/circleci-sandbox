@@ -23,7 +23,7 @@ jobs:
             fi
       - run:
           command: |
-            echo "${BASH_ENV}"
+            echo "${TARGET_FILE}"
       - continuation/continue:
           configuration_path: ${TARGET_FILE}
 
