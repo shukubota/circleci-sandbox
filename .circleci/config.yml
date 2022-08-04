@@ -12,7 +12,7 @@ jobs:
       - checkout
       - continuation/continue:
           configuration_path: .circleci/main.yml
-      when:
+      - when:
         condition:
           equal: [ main, << pipeline.git.branch >> ]
 
