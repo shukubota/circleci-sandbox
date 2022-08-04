@@ -7,6 +7,8 @@ orbs:
 jobs:
   setup:
     executor: continuation/default
+    environment:
+      TARGET_FILE: ./circleci/main.yml
     steps:
       - checkout
       - run:
@@ -15,11 +17,10 @@ jobs:
       - run:
           command: |
             if [ "${CIRCLE_BRANCH}" == "main" ]; then
-              export TARGET_FILE="./circleci/main.yml" >> $BASH_ENV
+              export TARGET_FILE="./circleci/main.yml"
             else
-              export TARGET_FILE="./circleci/develop.yml" >> $BASH_ENV
+              export TARGET_FILE="./circleci/develop.yml"
             fi
-            source $BASH_ENV
       - run:
           command: |
             echo "${BASH_ENV}"
