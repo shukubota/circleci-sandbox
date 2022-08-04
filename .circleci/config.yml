@@ -1,0 +1,25 @@
+version: 2.1
+
+setup: true
+orbs:
+  continuation: circleci/continuation@0.1.2
+
+jobs:
+  setup:
+    executor: continuation/default
+    steps:
+      - checkout
+      - run:
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              TARGET_FILE=".circleci/master.yml"
+            else
+              TARGET_FILE=".circleci/develop.yml"
+            fi
+      - continuation/continue:
+          configuration_path: .circleci/develop.yml
+
+workflows:
+  setup:
+    jobs:
+      - setup

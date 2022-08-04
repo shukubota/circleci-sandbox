@@ -1,0 +1,15 @@
+version: 2.1
+
+jobs:
+  develop:
+    executor: circleci/node:12
+    steps:
+      - checkout
+      - run:
+          command: |
+            echo "develop"
+
+workflows:
+  setup:
+    jobs:
+      - develop
