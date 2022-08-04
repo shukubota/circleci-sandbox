@@ -13,9 +13,9 @@ jobs:
       - run:
           command: |
             if [[ "${CIRCLE_BRANCH}" == "main" ]]; then
-              .circleci/main.yml > run.yml
+              cp .circleci/main.yml run.yml
             else
-              .circleci/develop.yml > run.yml
+              cp .circleci/develop.yml run.yml
             fi
       - continuation/continue:
           configuration_path: ./run.yml
