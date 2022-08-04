@@ -10,11 +10,16 @@ jobs:
     executor: continuation/default
     steps:
       - checkout
+      - run:
+          command:
+            if [[ "${CIRCLE_BRANCH}" == "main" ]]
+            then
+              .circleci/main.yml > run.yml
+            else
+              .circleci/develop.yml > run.yml
+            fi
       - continuation/continue:
-          configuration_path: .circleci/main.yml
-          when:
-            condition:
-              equal: [ main, << pipeline.git.branch >> ]
+          configuration_path: .circleci/run.yml
   # kick-dev:
   #   executor: continuation/default
   #   steps:
