@@ -17,6 +17,6 @@ jobs:
             echo "develop"
 
 workflows:
-  setup:
+  run-develop:
     jobs:
       - develop
