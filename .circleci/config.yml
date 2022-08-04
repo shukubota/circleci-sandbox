@@ -25,7 +25,7 @@ jobs:
           command: |
             echo "${TARGET_FILE}"
       - continuation/continue:
-          configuration_path: TARGET_FILE
+          configuration_path: $TARGET_FILE
 
 workflows:
   setup:
