@@ -6,7 +6,7 @@ orbs:
   continuation: circleci/continuation@0.1.2
 
 jobs:
-  run-main:
+  setup-main:
     executor: continuation/default
     steps:
       - checkout
@@ -15,18 +15,19 @@ jobs:
       - when:
         condition:
           equal: [ main, << pipeline.git.branch >> ]
+  setup-dev:
+    executor: continuation/default
+    steps:
+      - checkout
+      - continuation/continue:
+          configuration_path: .circleci/dev.yml
+      - when:
+        matched:
+          pattern: "^deploy/pfdev-review$"
+          value: << pipeline.git.branch >>
 
 workflows:
   run-main:
     jobs:
-      - run-main
-    when:
-      condition:
-        equal: [ main, << pipeline.git.branch >> ]
-  # run-dev:
-  #   jobs:
-  #     - run-dev
-  #   when:
-  #     matched:
-  #       pattern: "^deploy/pfdev-review$"
-  #       value: << pipeline.git.branch >>
+      - setup-main
+      - setup-dev
