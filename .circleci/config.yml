@@ -15,10 +15,11 @@ jobs:
       - run:
           command: |
             if [ "${CIRCLE_BRANCH}" == "main" ]; then
-              export TARGET_FILE="./circleci/main.yml"
+              export TARGET_FILE="./circleci/main.yml" >> $BASH_ENV
             else
-              export TARGET_FILE="./circleci/develop.yml"
+              export TARGET_FILE="./circleci/develop.yml" >> $BASH_ENV
             fi
+            source $BASH_ENV
       - run:
           command: |
             echo "${TARGET_FILE}"
