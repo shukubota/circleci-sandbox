@@ -19,6 +19,9 @@ jobs:
             else
               export TARGET_FILE="./circleci/develop.yml"
             fi
+      - run:
+          command: |
+            echo "${TARGET_FILE}"
       - continuation/continue:
           configuration_path: ${TARGET_FILE}
 
