@@ -3,32 +3,24 @@ version: 2.1
 setup: true
 
 orbs:
-  continuation: circleci/continuation@0.1.2
+  continuation: circleci/continuation@0.3.1
 
 jobs:
   kick-main:
     executor: continuation/default
     steps:
       - checkout
+      - run:
+          command: |
+            if [[ "${CIRCLE_BRANCH}" == "main" ]]; then
+              cp .circleci/main.yml run.yml
+            else
+              cp .circleci/develop.yml run.yml
+            fi
       - continuation/continue:
-          configuration_path: .circleci/main.yml
-      - when:
-        condition:
-          equal: [ main, << pipeline.git.branch >> ]
-  # kick-dev:
-  #   executor: continuation/default
-  #   steps:
-  #     - checkout
-  #     - continuation/continue:
-  #         configuration_path: .circleci/develop.yml
-  #     - when:
-  #       condition:
-  #         matched:
-  #           pattern: "^deploy/pfdev-review$"
-  #           value: << pipeline.git.branch >>
+          configuration_path: ./run.yml
 
 workflows:
   run-main:
     jobs:
       - kick-main
-      # - kick-dev

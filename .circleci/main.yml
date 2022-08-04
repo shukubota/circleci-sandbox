@@ -15,6 +15,9 @@ jobs:
       - run:
           command: |
             echo "main"
+      - run:
+          command: |
+            echo $CIRCLE_BRANCH
 
 workflows:
   run-main:

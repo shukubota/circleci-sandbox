@@ -15,6 +15,9 @@ jobs:
       - run:
           command: |
             echo "develop"
+      - run:
+          command: |
+            echo $CIRCLE_BRANCH
 
 workflows:
   run-develop:
