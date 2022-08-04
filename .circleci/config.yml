@@ -15,20 +15,20 @@ jobs:
       - when:
         condition:
           equal: [ main, << pipeline.git.branch >> ]
-  # kick-dev:
-  #   executor: continuation/default
-  #   steps:
-  #     - checkout
-  #     - continuation/continue:
-  #         configuration_path: .circleci/develop.yml
-  #     - when:
-  #         condition:
-  #           matched:
-  #             pattern: "^deploy/pfdev-review$"
-  #             value: << pipeline.git.branch >>
+  kick-dev:
+    executor: continuation/default
+    steps:
+      - checkout
+      - continuation/continue:
+          configuration_path: .circleci/develop.yml
+      - when:
+        condition:
+          matched:
+            pattern: "^deploy/pfdev-review$"
+            value: << pipeline.git.branch >>
 
 workflows:
   run-main:
     jobs:
       - kick-main
-      # - kick-dev
+      - kick-dev
