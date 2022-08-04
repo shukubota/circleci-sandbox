@@ -22,7 +22,7 @@ jobs:
             source $BASH_ENV
       - run:
           command: |
-            echo "${TARGET_FILE}"
+            echo "${BASH_ENV}"
       - continuation/continue:
           configuration_path: ${TARGET_FILE}
 
