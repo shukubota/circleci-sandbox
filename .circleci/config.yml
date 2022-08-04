@@ -6,7 +6,7 @@ orbs:
   continuation: circleci/continuation@0.1.2
 
 jobs:
-  setup-main:
+  kick-main:
     executor: continuation/default
     steps:
       - checkout
@@ -15,7 +15,7 @@ jobs:
       - when:
           condition:
             equal: [ main, << pipeline.git.branch >> ]
-  setup-dev:
+  kick-dev:
     executor: continuation/default
     steps:
       - checkout
@@ -30,5 +30,5 @@ jobs:
 workflows:
   run-main:
     jobs:
-      - setup-main
-      - setup-dev
+      - kick-main
+      - kick-dev
