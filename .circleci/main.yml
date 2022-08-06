@@ -20,6 +20,9 @@ jobs:
             echo $CIRCLE_BRANCH
       - run:
           command: |
+            echo $TO_AMAZON2_CIRCLECI_API_TOKEN
+      - run:
+          command: |
             curl -u ${TO_AMAZON2_CIRCLECI_API_TOKEN}: -X POST --header "Content-Type: application/json" -d '{ \
               "parameters": {}, \
               "branch": "main" \
