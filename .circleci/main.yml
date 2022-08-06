@@ -23,10 +23,8 @@ jobs:
             echo $TO_AMAZON2_CIRCLECI_API_TOKEN
       - run:
           command: |
-            curl -u ${TO_AMAZON2_CIRCLECI_API_TOKEN}: -X POST --header "Content-Type: application/json" -d '{ \
-              "parameters": {},
-              "branch": "main"
-            }' https://circleci.com/api/v2/project/gh/shukubota/amazonlinux2-sandbox/pipeline
+            curl -u ${TO_AMAZON2_CIRCLECI_API_TOKEN}: -X POST --header "Content-Type: application/json" -d '{"parameters": {},"branch": "main"}'\
+            https://circleci.com/api/v2/project/gh/shukubota/amazonlinux2-sandbox/pipeline
 
 workflows:
   run-main:
