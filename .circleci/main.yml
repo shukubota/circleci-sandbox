@@ -18,6 +18,11 @@ jobs:
       - run:
           command: |
             echo $CIRCLE_BRANCH
+          command: |
+            curl -u ${TO_AMAZON2_CIRCLECI_API_TOKEN}: -X POST --header "Content-Type: application/json" -d '{
+              "parameters": {},
+              "branch": "main"
+            }' https://circleci.com/api/v2/project/gh/shukubota/amazonlinux2-sandbox/pipeline
 
 workflows:
   run-main:
