@@ -24,10 +24,10 @@ echo test10 $test10
 echo test11 $test11
 echo test12 $test12
 
-if [ -z "$test1" ]; then
+if [ -n "$test1" ]; then
   echo "pass test1"
 fi
 
-if [ -z "$test12" ]; then
+if [ -z "$test13" ]; then
   exit 1
 fi
