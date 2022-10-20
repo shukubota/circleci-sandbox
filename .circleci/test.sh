@@ -23,3 +23,11 @@ echo test9 $test9
 echo test10 $test10
 echo test11 $test11
 echo test12 $test12
+
+if [ -z "$test1" ]; then
+  echo "pass test1"
+fi
+
+if [ -z "$test12" ]; then
+  exit 1
+fi
