@@ -15,7 +15,8 @@ jobs:
       - run:
           command: |
             echo "main"
-            ls
+            ls -a
+            ls /home/circleci
             pwd
             source /home/circleci/test.sh a b c d e f g h i j k l
       - run:
