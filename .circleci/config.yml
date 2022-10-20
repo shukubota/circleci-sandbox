@@ -25,7 +25,7 @@ jobs:
           command: |
             echo "${TARGET_FILE}"
       - continuation/continue:
-          configuration_path: .circleci/<< TARGET_FILE >>.yml
+          configuration_path: .circleci/<< pipeline.git.branch >>.yml
 
 workflows:
   setup:
