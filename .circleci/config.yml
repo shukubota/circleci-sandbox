@@ -9,6 +9,7 @@ orbs:
 jobs:
   kick-main:
     executor: continuation/default
+    executor: aws-cli/default
     steps:
       - checkout
       - run: aws --version
