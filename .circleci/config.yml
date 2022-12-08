@@ -8,7 +8,7 @@ orbs:
 
 jobs:
   kick-main:
-    executor: continuation/default
+    # executor: continuation/default
     executor: aws-cli/default
     steps:
       - checkout
@@ -20,8 +20,8 @@ jobs:
             else
               cp .circleci/develop.yml run.yml
             fi
-      - continuation/continue:
-          configuration_path: ./run.yml
+      # - continuation/continue:
+      #     configuration_path: ./run.yml
 
 workflows:
   run-main:
