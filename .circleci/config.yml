@@ -12,7 +12,7 @@ jobs:
     executor: aws-cli/default
     steps:
       - checkout
-      - aws-cli/setup
+      - aws-cli/install
       - run: aws --version
       - run:
           command: |
