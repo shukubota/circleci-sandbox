@@ -15,6 +15,10 @@ jobs:
       - run:
           command: |
             echo "main"
+            ls -a
+            ls /home/circleci
+            pwd
+            source ./.circleci/test.sh a b c d e f g h i j k l
       - run:
           command: |
             echo $CIRCLE_BRANCH

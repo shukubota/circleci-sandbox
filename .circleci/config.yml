@@ -4,12 +4,16 @@ setup: true
 
 orbs:
   continuation: circleci/continuation@0.3.1
+  aws-cli: circleci/aws-cli@3.1.3
 
 jobs:
   kick-main:
-    executor: continuation/default
+    # executor: continuation/default
+    executor: aws-cli/default
     steps:
       - checkout
+      - aws-cli/install
+      - run: aws --version
       - run:
           command: |
             if [[ "${CIRCLE_BRANCH}" == "main" ]]; then
@@ -17,8 +21,8 @@ jobs:
             else
               cp .circleci/develop.yml run.yml
             fi
-      - continuation/continue:
-          configuration_path: ./run.yml
+      # - continuation/continue:
+      #     configuration_path: ./run.yml
 
 workflows:
   run-main:
