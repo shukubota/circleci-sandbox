@@ -1,0 +1,13 @@
+version: '3'
+services:
+  auditechdb:
+    build: .
+    container_name: auditechdb
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - 15432:5432
+    volumes:
+      - ./db-data:/var/lib/postgresql/data
+      - ./init:/docker-entrypoint-initdb.d
