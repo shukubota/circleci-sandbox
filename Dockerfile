@@ -1,1 +1,0 @@
-FROM circleci/node:12
