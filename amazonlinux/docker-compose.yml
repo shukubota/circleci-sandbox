@@ -1,0 +1,13 @@
+version: '3'
+services:
+  app:
+    container_name: amazonlinux
+    build: .
+    volumes:
+      - type: bind
+        source: .
+        target: /root/amazonlinux
+    working_dir: /root/amazonlinux
+    entrypoint: bash
+    stdin_open: true
+    tty: true
