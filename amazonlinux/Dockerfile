@@ -1,1 +1,1 @@
-FROM amazonlinux:1
+FROM amazonlinux:2
