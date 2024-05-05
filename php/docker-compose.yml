@@ -1,0 +1,13 @@
+version: '3'
+services:
+  app:
+    container_name: cimag_php
+    build: .
+    volumes:
+      - type: bind
+        source: .
+        target: /root/cimag_php
+    working_dir: /root/cimag_php
+    entrypoint: bash
+    stdin_open: true
+    tty: true
