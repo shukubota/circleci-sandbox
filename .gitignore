@@ -1,2 +1,3 @@
 postgres/db-data/*
 .idea
+aws/volume
